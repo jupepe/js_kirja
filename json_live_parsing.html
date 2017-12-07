@@ -1,0 +1,50 @@
+<html>
+
+<head>
+<title>JSON parse example</title>
+
+<script>
+function validateJson() {
+
+	var jsonData = parseJsonData();
+	if (jsonData && jsonData !== null) {
+			var personStr = jsonData.first + " " + jsonData.last + " is  " + jsonData.age + " years old.";
+			document.getElementById('messageBox').style.color = 'green';
+			document.getElementById('messageBox').innerHTML = personStr;
+	}
+	else {
+		document.getElementById('messageBox').style.color = 'red';
+		console.log("JSON parsing error");
+	}
+}
+
+function parseJsonData()
+{
+	let jsonData = document.getElementById('jsonInput').value;
+	let jsonOutput;
+	console.log(jsonData);
+    try {
+    	jsonOutput = JSON.parse(jsonData);
+	    return jsonOutput;
+	}
+	catch(e) {
+    	document.getElementById('messageBox').innerHTML = " Error: " + e.message;
+		return false;
+	}
+}
+
+</script>
+</head>
+
+<body>
+	<form>
+		<div><label for="jsonInput"> JSON Input: </label> </div>
+		<div><textarea rows="4" cols="80" id="jsonInput" ></textarea> </div>
+	</form>
+<button class="btn" onclick="validateJson()">Submit</button>
+	<div id="messageBox" style='color:green'>
+
+	</div>
+</body>
+
+</html>

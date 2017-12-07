@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JSON handling</title>
+
+<script>
+var computers=
+[{"id":1,"device":"Webcam","manufacturer":"Skalith","purchaseDate":"23.06.2011","price":"€39,66"},
+{"id":2,"device":"Monitor","manufacturer":"Roodel","purchaseDate":"26.04.2011","price":"€32,38"},
+{"id":3,"device":"Network card","manufacturer":"Twitterbeat","purchaseDate":"17.05.2014","price":"€20,47"},
+{"id":4,"device":"Digital camera","manufacturer":"Trilith","purchaseDate":"29.12.2013","price":"€21,97"},
+{"id":5,"device":"Sound Card","manufacturer":"Tagchat","purchaseDate":"14.07.2012","price":"€75,02"},
+{"id":6,"device":"Headsets","manufacturer":"Geba","purchaseDate":"22.09.2010","price":"€94,70"},
+{"id":7,"device":"Network card","manufacturer":"Bubbletube","purchaseDate":"13.07.2014","price":"€72,32"},
+{"id":8,"device":"Webcam","manufacturer":"Buzzshare","purchaseDate":"08.06.2011","price":"€34,28"},
+{"id":9,"device":"Speaker","manufacturer":"Shufflester","purchaseDate":"13.09.2013","price":"€58,31"},
+{"id":10,"device":"Digital camera","manufacturer":"Yata","purchaseDate":"11.08.2013","price":"€82,30"}];
+
+var computers2=
+{"devices": [{"id":1,"device":"Webcam","manufacturer":"Skalith","purchaseDate":"23.06.2011","price":"€39,66"},
+{"id":2,"device":"Monitor","manufacturer":"Roodel","purchaseDate":"26.04.2011","price":"€32,38"},
+{"id":3,"device":"Network card","manufacturer":"Twitterbeat","purchaseDate":"17.05.2014","price":"€20,47"},
+{"id":4,"device":"Digital camera","manufacturer":"Trilith","purchaseDate":"29.12.2013","price":"€21,97"},
+{"id":5,"device":"Sound Card","manufacturer":"Tagchat","purchaseDate":"14.07.2012","price":"€75,02"},
+{"id":6,"device":"Headsets","manufacturer":"Geba","purchaseDate":"22.09.2010","price":"€94,70"},
+{"id":7,"device":"Network card","manufacturer":"Bubbletube","purchaseDate":"13.07.2014","price":"€72,32"},
+{"id":8,"device":"Webcam","manufacturer":"Buzzshare","purchaseDate":"08.06.2011","price":"€34,28"},
+{"id":9,"device":"Speaker","manufacturer":"Shufflester","purchaseDate":"13.09.2013","price":"€58,31"},
+{"id":10,"device":"Digital camera","manufacturer":"Yata","purchaseDate":"11.08.2013","price":"€82,30"}]};
+
+
+function parseJson() {
+  var output="<table border=2>";
+ output+="<tr><th>device</th><th>manufacturer</th><th>price</th></tr>";
+    // ensimmäisessä koko devices taulukko on sijoitettu suoraan muuttujaan
+    for (var i in computers) {
+        output+="<tr><td>" + computers[i].device + "</td><td>" + computers[i].manufacturer + "</td><td>" + computers[i].price + "</td></tr>";
+    }
+    output+="</table>";
+
+   // nyt on lisäksi avain devices, joka koostuu device-taulukosta
+   output+="<table border=0>";
+   output+="<tr><th>device</th><th>manufacturer</th><th>price</th></tr>";
+    for (var i in computers2.devices) {
+        output+="<tr><td>" + computers2.devices[i].device + "</td><td>" + computers2.devices[i].manufacturer + "</td><td>" + computers2.devices[i].price + "</td></tr>";
+    }
+    output+="</table>";
+
+
+    document.getElementById("results").innerHTML=output;
+}
+
+window.onload = parseJson;
+
+
+</script>
+</head>
+<body>
+
+  <div id="results"></div>
+</body>
+</html>
+
+
