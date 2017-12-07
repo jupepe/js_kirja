@@ -1,5 +1,5 @@
-# js_kirja
-Kaikki JavaScript-kieli kirjan esimerkit löytyvät täältä!
+# JavaScript-kieli 
+Kaikki JavaScript-kieli kirjan esimerkit löytyvät täältä! 
 
 ## Kirjan tiedot
 * JavaScript-kieli, Uudet ominaisuudet
